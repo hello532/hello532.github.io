@@ -152,11 +152,6 @@ pre {
   -webkit-overflow-scrolling: touch;
   margin: 18px 0;
 }
-.table-note {
-  margin: 18px 0 6px;
-  font-size: 14.5px;
-  color: var(--ink-soft);
-}
 table {
   width: 100%;
   border-collapse: collapse;
@@ -174,6 +169,7 @@ th, td {
 }
 th { background: #f4f6f5; }
 caption { text-align: left; margin-bottom: 6px; }
+caption.meta { margin: 0 0 8px; }
 
 footer.site {
   border-top: 1px solid var(--line);
@@ -185,11 +181,7 @@ footer.site {
 footer.site a { color: var(--teal); }
 
 @media (max-width: 560px) {
-  .scroll-x > table {
-    width: max-content;
-    min-width: 100%;
-    font-size: 14.5px;
-  }
+  .scroll-x > table { font-size: 14.5px; }
   th, td { padding: 7px 8px; }
   pre { padding: 12px 12px; font-size: 13.5px; }
 }
