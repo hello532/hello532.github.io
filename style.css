@@ -147,17 +147,30 @@ pre {
   white-space: pre-wrap;
 }
 
+.scroll-x {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 18px 0;
+}
+.table-note {
+  margin: 18px 0 6px;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+}
 table {
   width: 100%;
   border-collapse: collapse;
   margin: 18px 0;
   font-size: 15.5px;
 }
+.scroll-x > table { margin: 0; }
 th, td {
   border: 1px solid var(--line);
   padding: 9px 11px;
   text-align: left;
   vertical-align: top;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 th { background: #f4f6f5; }
 caption { text-align: left; margin-bottom: 6px; }
@@ -170,3 +183,13 @@ footer.site {
   color: var(--ink-soft);
 }
 footer.site a { color: var(--teal); }
+
+@media (max-width: 560px) {
+  .scroll-x > table {
+    width: max-content;
+    min-width: 100%;
+    font-size: 14.5px;
+  }
+  th, td { padding: 7px 8px; }
+  pre { padding: 12px 12px; font-size: 13.5px; }
+}
