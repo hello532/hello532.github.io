@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pre-launch store QA brief: coverage, severity, and the defect report</title>
+<meta name="description" content="A brief for commissioning a pre-launch pass over a finished store: the coverage to specify, severity defined by consequence, and the defect report to demand.">
+<link rel="canonical" href="https://hello532.github.io/guides/pre-launch-qa-brief.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pre-launch store QA brief: coverage, severity, and the defect report">
+<meta property="og:description" content="A brief for commissioning a pre-launch pass over a finished store: the coverage to specify, severity defined by consequence, and the defect report to demand.">
+<meta property="og:url" content="https://hello532.github.io/guides/pre-launch-qa-brief.html">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/">DTC Outsourcing Playbook</a>
+    <nav class="site" aria-label="Site">
+      <a href="/guides/">All guides</a>
+      <a href="/disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <h1>Pre-launch store QA brief</h1>
+    <p class="meta">Updated 4 September 2026 · reading time about 8 minutes</p>
+
+    <p class="lede">Everything else you outsource before launch is graded by taste. This one is graded by whether a stranger on a phone can complete an order and be charged the right amount. That is a pass or a fail, which makes it the only item on a launch list you can check properly — and the first one dropped when the launch date gets close.</p>
+
+    <h2>When to order it, and when to do it yourself</h2>
+    <p><strong>Outsource when</strong> the store is otherwise finished and frozen: products loaded, theme done, apps installed, policies written, and nothing queued to change while someone is testing. <strong>Do it yourself when</strong> products are still going in. QA against a moving target produces a report that is obsolete before it is read — half the defects were closed by an unrelated edit, and the tester cannot tell you which half.</p>
+    <p>Frozen is an hour and a promise, not a mood. Name the time the freeze starts and hold it: no theme edits, no new products, no app installs, no shipping-rule changes mid-pass. A defect that cannot be reproduced the next day gets dismissed as a mistake, and the one real bug in the batch leaves with it.</p>
+    <p>There is a case for running the early passes yourself that has nothing to do with saving an order. Walking your own checkout on your own phone is how you find out which parts of the store you assembled without understanding — the shipping profile you copied, the app you installed at midnight, the market you switched on and forgot. Hand that stage to a tester and you buy a list of things you would have found in twenty minutes, while the defects that genuinely need a stranger stay hidden. QA sits last in <a href="/guides/shopify-launch-outsourcing-checklist.html">the 7-task launch outsourcing checklist</a> for the same reason.</p>
+
+    <h2>Why this is the item that gets cut</h2>
+    <p>A QA pass produces no asset. Every other order on a launch list ends in a file you can look at: a logo, a photograph, a page, an edit. This one ends in a document listing things that are wrong, which is the least satisfying thing anyone has ever bought, and the easiest to postpone until after the first sale — a moment that, for a store with a broken checkout, never arrives. Insurance is always the simplest line to cut, because the thing it prevents has not happened yet.</p>
+    <p>The argument for buying it is not that testers are clever. It is that you are the worst available tester of your own store. Your address autofills, your session is cached, the theme you edited an hour ago is still sitting in your browser, and you have walked one route through the store so many times that you no longer see it. You test the path you built. A buyer arrives on a handset you do not own, from a market you have barely thought about, and takes the path you did not.</p>
+    <p>And a buyer does not file defects. A shipping step that returns no rates for their country produces no support email; it produces a closed tab. The failure is silent, and it is silent precisely where the money is.</p>
+
+    <h2>What to put on the coverage list</h2>
+    <p>"Test my store and tell me what is broken" returns whatever the tester happens to notice, which is nearly always the visual layer, because that is the layer that is visible. Coverage has to be enumerated. Write the list, ask for a stated result on every line, and insist on a result even where nothing was wrong.</p>
+    <ul>
+      <li><strong>Checkout completed end to end on a real mobile device.</strong> Not a desktop window narrowed to phone width — a physical handset, model named in the report, with the order number as evidence. A resized browser does not reproduce the keyboard covering the card field, the autofill landing in the wrong line, or the payment sheet that never opens.</li>
+      <li><strong>Tax and shipping rules for every market you sell to.</strong> Each destination you have switched on, at more than one basket size if your rates are banded. The failure to hunt for is not a wrong figure; it is no rates returned at all, which reads to the buyer as a store that will not ship to them.</li>
+      <li><strong>Analytics and conversion tracking firing on the right events.</strong> Installed is not a test result. Ask which events fired, in what order, with what value and currency attached, and whether a completed purchase records once rather than twice. A tag that fires on every page view will hand you a conversion rate you then make decisions on for months.</li>
+      <li><strong>Broken links, bad redirects, and pages reachable from nothing.</strong> Navigation, footer, policy pages, links inside product descriptions, and anything you moved while building. Orphan pages matter because they tend to be the ones still carrying a discontinued variant or a superseded claim.</li>
+      <li><strong>Layout and tap targets at a small viewport.</strong> Name the failures you want checked: a sticky bar or consent notice sitting over the buy button, a field the keyboard hides, a swipe gallery that traps the page scroll, text that needs a pinch to read.</li>
+      <li><strong>Loading behaviour on the templates that matter.</strong> Home, the collection you intend to advertise, the product page you intend to advertise, cart, and checkout. Name the tool and the network condition in the brief, and take a reading before any fixes so a later comparison means something. Thresholds inside these tools change, so confirm the current ones in the tool you both agreed on rather than trusting a figure quoted from memory.</li>
+      <li><strong>The transactional emails a real order triggers.</strong> Order confirmation and shipping notification at minimum, plus whatever a refund or cancellation sends. Check the sender name, the reply-to address, whether the branding survived, and where each message actually landed on more than one mail provider. These are not your welcome and abandoned-cart sequences; those are a separate order with a separate brief, covered in <a href="/guides/email-flow-brief.html">the email flow brief</a>.</li>
+    </ul>
+    <p>Where to look: <a href="https://www.fiverr.com/categories/programming-tech/website-development">website development listings</a>.</p>
+
+    <h2>Ask for a defect list, not a screen recording</h2>
+    <p>A narrated screen recording feels generous. It is homework. You watch forty minutes to extract eleven items, write them down yourself, then send that written list to whoever is fixing them — so the work of turning observation into tasks happened twice, and you did it the second time.</p>
+    <p>A list can be sorted, assigned, quoted against, and closed. A recording cannot be handed to a developer who was not on the call, and a defect nobody else can reproduce gets closed as "works for me". Require these fields on every row:</p>
+    <ul>
+      <li><strong>Severity</strong>, taken from the agreed scheme rather than from feeling.</li>
+      <li><strong>Steps to reproduce</strong>, numbered, starting from a URL, written so a stranger can follow them without asking a question.</li>
+      <li><strong>Expected versus actual</strong>, one line each. A good share of what arrives as a defect is really a disagreement about what the store is supposed to do, and this field surfaces that before anyone spends an hour on it.</li>
+      <li><strong>Device, operating system, and browser</strong>, named. A defect that exists on one combination is a different job from one that exists everywhere, and without this you cannot tell which you have.</li>
+      <li><strong>One screenshot</strong>, annotated when the problem is a position rather than a value.</li>
+    </ul>
+    <p>Video has one legitimate place: attached to a single row where the problem is movement — an animation that jumps, a gallery that swallows a swipe, a checkout that flashes and reloads. A ten-second clip there is evidence. A tour of the store is not.</p>
+
+    <h2>Severity that means something</h2>
+    <p>High, medium and low describe the tester's mood. You cannot sort by them and you cannot argue with them, because someone who cares about typography and someone who cares about failed payments will hand you two incompatible lists under the same three labels. Define the tiers by consequence instead, put the definitions in the brief, and require the tier on every row.</p>
+    <table>
+      <caption class="meta">Severity defined by consequence, and what each tier does to a launch date</caption>
+      <thead>
+        <tr><th>Tier</th><th>Definition, by consequence</th><th>The kind of defect that belongs here</th><th>Blocks launch</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Blocks an order</td><td>A buyer on a path you are sending traffic to cannot complete a purchase.</td><td>The shipping step returns no rates for a country you sell to, so checkout cannot proceed.</td><td>Yes</td></tr>
+        <tr><td>Takes money incorrectly</td><td>The order completes, but the amount, tax, currency, or discount applied is not what either side intended.</td><td>A discount code stacks with an automatic offer and the total lands below what fulfilling the order costs you.</td><td>Yes</td></tr>
+        <tr><td>Misleads the buyer</td><td>The store states something the order will not honour.</td><td>A delivery estimate on the product page that the shipping rules contradict, or a returns window the policy page denies.</td><td>Yes — this is a refund and dispute source, not a wording preference</td></tr>
+        <tr><td>Damages trust</td><td>The transaction is correct, but the store reads as unfinished or unsafe.</td><td>Placeholder text left in a policy page, a broken image in the footer, an order confirmation arriving from an unbranded address.</td><td>Anything on the path to checkout, yes; the rest can ship</td></tr>
+        <tr><td>Cosmetic</td><td>A visual imperfection with no effect on comprehension or completion.</td><td>A collection card sitting a couple of pixels out of line at one viewport width.</td><td>No</td></tr>
+      </tbody>
+    </table>
+    <p>The point of consequence tiers is that you can disagree with one. If a row is filed as blocking an order, you can walk the steps and watch whether an order completes. "Medium" gives you nothing to check.</p>
+
+    <h2>Test orders, refunds, and clean books</h2>
+    <p>Someone has to attempt a purchase, which means money moves or is deliberately made not to. Decide which route you are taking before you order, and write it into the brief.</p>
+    <p>If your platform or payment provider offers a test mode, confirm how it behaves today and whether it exercises the same path a real card would, then decide whether that is enough coverage — the parts most likely to be broken are often the ones a simulator skips. The alternatives are a real order placed by the tester on a payment method you control, or one you place yourself while the tester watches and records the result. Any of the three is defensible. Leaving it to be worked out mid-pass is not.</p>
+    <div class="warn">
+      <strong>Agree who refunds the test orders and who cancels the test shipments before the pass starts, in writing.</strong> A completed test order is a real order until somebody reverses it: it can trigger a fulfilment, notify a supplier, consume stock, land in your accounting, and count as a conversion in every connected tool. Assume nothing is filtered out for you; check. Give test orders a recognisable name or note so every one of them can be found afterwards, and require them listed in the report.
+    </div>
+    <p>Most of this pass needs no admin access at all. A tester needs the storefront, the storefront password if the store is still gated, and permission to attempt a purchase. If a defect turns out to need admin visibility to diagnose, treat that as a fresh decision rather than a default — the safer way to hand over a store, and the permissions to use when you must, are in <a href="/guides/landing-page-build-brief.html">the landing page build brief</a>.</p>
+
+    <h2>Who fixes what, and the one re-check</h2>
+    <p>QA and repair are two orders. A tester finding a defect does not mean the tester is fixing it, and a listing that mentions testing may not include a single edit. Ask in writing before you order, because assuming it ends the job in a dispute over work nobody agreed to.</p>
+    <p>Keeping them separate also keeps the list honest: a tester who is also the repairer has a quiet incentive to file what is easy to fix and to be vague about what is not. Combining them is reasonable when the same person built the store, since they already know the theme — but then the defect list is being written by the person the defect list is about, and it should be read that way.</p>
+    <p>Agree a single re-check pass at the outset, and define it: reproduce every defect in the top two tiers from the original steps, mark each one closed or still open, and confirm nothing new appeared on the paths that were touched. Left until the fixes land, a re-check becomes a negotiation you conduct from the weak position of a launch date, against someone who knows you have one.</p>
+    <p>If the repair goes to someone else, the defect list is the brief. That is the second reason to insist on steps to reproduce: they are what a repairer quotes against.</p>
+    <p>Where to look: <a href="https://www.fiverr.com/categories/programming-tech/website-development">website development listings</a> for the pass and the repair, ordered separately. For working out which of the two a listing is actually selling, see <a href="/guides/vetting-any-seller.html">reading a listing and vetting a seller</a>.</p>
+
+    <h2>Ordering the pass</h2>
+    <h3>Brief</h3>
+    <pre>STORE
+Store URL:
+Storefront password, if the store is still gated:
+Frozen from (date and time) — no theme, product, app, or rule changes:
+
+SCOPE
+Markets to test (countries), and the currency each should display:
+Payment methods to attempt, in priority order:
+Templates that matter: home, top collection, top product, cart, checkout
+Devices required (at least one real phone, model named, plus desktop):
+Browsers required on each:
+
+TEST ORDERS
+Test orders permitted: yes / no
+If yes, the payment method to use and any code created for this pass:
+Who refunds test orders and cancels any test fulfilment:
+How test orders must be labelled so I can find them afterwards:
+
+COVERAGE — report a result on every line, including the clean ones
+Checkout completed end to end on the named phone, with order number:
+Tax and shipping rates returned for every market listed above:
+Tracking: which events fired, in what order, with what value:
+Broken links, redirects, and pages reachable from no menu:
+Layout and tap targets at a small viewport:
+Loading behaviour on the templates above, with the tool named:
+Transactional emails a real order triggers, and where each landed:
+
+DELIVERABLE
+Format: one defect per row, sorted by severity, worst first
+Per defect: severity, steps to reproduce, expected versus actual,
+  device and browser, one screenshot
+Severity scheme: the five consequence tiers agreed, not high/medium/low
+Re-check pass after fixes: included / quoted separately
+Deadline:</pre>
+    <h3>Check on delivery</h3>
+    <ul>
+      <li>Every defect reproduces from the steps as written, on the device named, by someone who was not there. A defect you cannot reproduce is not a report; it is a rumour, and it will be closed as one.</li>
+      <li>Severities match the agreed definitions. Spot-check two rows by reading the consequence rather than the label.</li>
+      <li>At least one completed checkout is evidenced on a real mobile device: order number recorded, handset model named, not a resized desktop window.</li>
+      <li>Tracking is verified by events observed with their values, not by a snippet being present in the theme.</li>
+      <li>Every market you listed appears in the report, including the ones where nothing was wrong. Silence is not a pass.</li>
+      <li>Test orders are accounted for one by one: refunded or cancelled by whoever agreed to, and excluded or tagged anywhere they would otherwise distort your numbers.</li>
+      <li>The report is a list you can work through in order, top row first, rather than a narrative you have to convert into tasks yourself.</li>
+    </ul>
+
+    <div class="note">
+      A QA order is not someone looking at your store. It is someone attempting what a buyer will attempt, on hardware you do not own, and writing down what happened in a form you can act on without watching anything. Specify the coverage, define severity by consequence, and settle the test orders before one is placed. Everything else about this order is detail.
+    </div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    DTC Outsourcing Playbook · <a href="/disclosure.html">Disclosure &amp; contact</a><br>
+    Independent site. Not affiliated with, endorsed by, or operated by Shopify or Fiverr.
+  </div>
+</footer>
+</body>
+</html>
