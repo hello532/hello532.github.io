@@ -113,9 +113,10 @@ li { margin: 6px 0; }
   color: inherit;
   background: #fff;
 }
-.card:hover, .card:focus {
-  border-color: var(--teal);
-  outline: none;
+.card:hover, .card:focus { border-color: var(--teal); }
+.card:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
 }
 .card strong { display: block; font-size: 18px; margin-bottom: 4px; color: var(--teal); }
 .card span { color: var(--ink-soft); font-size: 15px; }
