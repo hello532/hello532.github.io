@@ -2,72 +2,77 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hello532.github.io/</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://hello532.github.io/services.html</loc>
+    <lastmod>2026-09-07</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://hello532.github.io/guides/</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://hello532.github.io/guides/shopify-launch-outsourcing-checklist.html</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://hello532.github.io/guides/vetting-any-seller.html</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://hello532.github.io/guides/fixed-price-or-hourly.html</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://hello532.github.io/guides/product-photo-brief-template.html</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hello532.github.io/guides/product-page-copy-brief.html</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hello532.github.io/guides/logo-brand-kit-brief.html</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hello532.github.io/guides/landing-page-build-brief.html</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hello532.github.io/guides/video-editor-vetting-checklist.html</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hello532.github.io/guides/email-flow-brief.html</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hello532.github.io/guides/pre-launch-qa-brief.html</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hello532.github.io/about.html</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://hello532.github.io/disclosure.html</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <priority>0.5</priority>
   </url>
 </urlset>

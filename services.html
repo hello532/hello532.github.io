@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Build services — store automation, MCP servers, monitoring, with tests that prove they work</title>
+<meta name="description" content="Fixed-price Shopify automation, custom MCP servers, and price/stock monitoring. Every delivery ships with a test suite, and the test suite is itself proven by deliberately breaking the code.">
+<link rel="canonical" href="https://hello532.github.io/services.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Build services — store automation, MCP servers, monitoring, with tests that prove they work">
+<meta property="og:description" content="Fixed-price Shopify automation, custom MCP servers, and price/stock monitoring. Every delivery ships with a test suite, and the test suite is itself proven by deliberately breaking the code.">
+<meta property="og:url" content="https://hello532.github.io/services.html">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://hello532.github.io/services.html#page","url":"https://hello532.github.io/services.html","name":"Build services","isPartOf":{"@type":"WebSite","name":"DTC Outsourcing Playbook","url":"https://hello532.github.io/"}},{"@type":"Service","name":"Shopify store data automation","description":"Bulk catalogue edits, inventory and price sync, CSV or spreadsheet to Shopify, scheduled exports. Built on the Shopify Admin GraphQL API and delivered with a test suite.","serviceType":"Shopify Admin API automation","offers":{"@type":"Offer","price":"280","priceCurrency":"USD"},"areaServed":"Worldwide"},{"@type":"Service","name":"Custom MCP server","description":"A Model Context Protocol server that exposes your own data or internal API to Claude or any MCP client, with a self-test suite included.","serviceType":"MCP server development","offers":{"@type":"Offer","price":"600","priceCurrency":"USD"},"areaServed":"Worldwide"},{"@type":"Service","name":"Price and stock monitor","description":"Scheduled checks on competitor or supplier pages, with change alerts and a machine-readable history.","serviceType":"Web scraping and monitoring","offers":{"@type":"Offer","price":"220","priceCurrency":"USD"},"areaServed":"Worldwide"}]}
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/">DTC Outsourcing Playbook</a>
+    <nav class="site" aria-label="Site">
+      <a href="/guides/">All guides</a>
+      <a href="/about.html">About</a>
+      <a href="/disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <h1>The engineering jobs on this site, built for you — with tests that prove the work</h1>
+    <p class="lede">The guides here teach you how to brief someone else. This page is the other option: three jobs I build myself, at a fixed price, where the delivery includes a test suite <em>and</em> evidence that the test suite actually catches breakage. That second part is the whole difference. Anyone can hand you passing tests; passing tests are worthless until something has tried to break them.</p>
+
+    <h2>What every delivery includes</h2>
+    <ul>
+      <li><strong>Source you own outright.</strong> Plain Python or TypeScript in your own repository. No hosted dependency on me, no licence, no per-seat fee, nothing to renew.</li>
+      <li><strong>A test suite that runs on your machine.</strong> One command, no test framework to install, exit code 0 or 1.</li>
+      <li><strong>Proof the tests work.</strong> I inject deliberate defects into the finished code one at a time and show you that each one turns the suite red. A test that stays green while the code is broken is decoration, and you should not pay for decoration.</li>
+      <li><strong>A README that names the failure modes.</strong> What happens on a rate limit, an expired token, a renamed field — written down, not discovered by you in production.</li>
+    </ul>
+
+    <h2>Proof, before you send anything</h2>
+    <p>You do not have to take the above on trust. <a href="https://github.com/hello532/shop-mcp">github.com/hello532/shop-mcp</a> is public: a single-file Shopify catalogue and stock server for Claude, standard library only, no dependencies to audit.</p>
+    <ul>
+      <li><strong>189 assertions</strong> in <code>self_test.py</code>, runnable with <code>python3 shop_mcp.py --self-test</code>.</li>
+      <li><strong>23 deliberate defects</strong> injected by <code>mutation_test.sh</code> — a wrong pagination cursor, a swapped comparison, a dropped error branch — and <strong>all 23 turn the suite red</strong>. That is the number that means something.</li>
+      <li>Zero third-party packages, so the whole thing is readable in one sitting by whoever you ask to check it.</li>
+      <li><strong>What that repository does not prove.</strong> It has never been run against a live Shopify store. There is no credential in it and no recorded API session. The queries are written to the documented schema and every path around them is tested against a transport double — but the doubles are my model of Shopify's behaviour, not Shopify. The $280 package is delivery of that same discipline against <em>your</em> store, not a claim that the public file has already done a live round trip.</li>
+    </ul>
+
+    <h2>1. Store data automation — $280</h2>
+    <p><strong>Three working days.</strong> The jobs that are tedious by hand and dangerous in bulk, done against the Shopify Admin GraphQL API rather than the CSV importer.</p>
+    <ul>
+      <li>Bulk edits across the catalogue: prices, tags, collections, metafields, variant options.</li>
+      <li>Inventory or price sync from a spreadsheet, supplier feed, or another store, on a schedule.</li>
+      <li>Scheduled exports: stock levels, order lines, or anything else you currently copy by hand.</li>
+      <li>A dry-run mode that prints every change before it writes, because a bulk mistake on a live catalogue is expensive and silent.</li>
+    </ul>
+
+    <h2>2. Custom MCP server — $600</h2>
+    <p><strong>Five working days.</strong> Your own data or internal API, exposed to Claude or any MCP client, so you can ask questions of it in plain language instead of building a dashboard nobody opens.</p>
+    <ul>
+      <li>Read tools over whatever you already have: a store, a database, a spreadsheet, a REST API, log files.</li>
+      <li>Write tools only where you ask for them, each one confirming what it is about to change before it changes it.</li>
+      <li>Runs locally or on your own server. Your credentials never leave your machine, and no data passes through anything of mine.</li>
+      <li>The same self-test-plus-mutation evidence as <code>shop-mcp</code>, on your server.</li>
+    </ul>
+
+    <h2>3. Price and stock monitor — $220</h2>
+    <p><strong>Three working days.</strong> Scheduled checks on the pages you care about, with alerts when something moves.</p>
+    <ul>
+      <li>Competitor or supplier pages: price, stock state, title, variants — whichever fields matter.</li>
+      <li>Alerts by email or webhook on change, not a daily digest you stop reading after a week.</li>
+      <li>A machine-readable history, so you can look back at what a price did rather than just what it is.</li>
+      <li>A self-check that tells you when the <em>scraper</em> broke rather than reporting "no change" forever. Silent failure is the normal way these die.</li>
+    </ul>
+
+    <h2>Anything else — $45 an hour</h2>
+    <p>The guide on <a href="/guides/fixed-price-or-hourly.html">fixed price or hourly</a> routes a job by one test: can the deliverable be enumerated before work starts. The three packages above are fixed price precisely because they pass that test. A job that does not pass it — "make this faster", "find out why this breaks", an open-ended migration — gets the hourly shape instead, because forcing an open scope into a fixed price is where disputes come from. I follow my own rule here rather than quoting you a fixed number I would have to defend later.</p>
+
+    <h2>How to start</h2>
+    <p>Email <a href="mailto:coolun.337@gmail.com?subject=Build%20request">coolun.337@gmail.com</a> with what you are trying to do. Useful in a first message, though none of it is required:</p>
+    <ul>
+      <li>The outcome, not the implementation — "I re-key supplier stock into Shopify every morning" beats "I need a sync script".</li>
+      <li>Which platform and where the data lives now.</li>
+      <li>Whether anything is time-bound.</li>
+    </ul>
+    <p>You get back a scope in writing — the deliverable, the price, the turnaround — before any money moves. If the job is a bad fit, or you would be better off buying a $20 app, I will say so; that is cheaper for both of us than a refund.</p>
+
+    <div class="note">
+      <strong>Why there are prices here when the guides refuse to print them.</strong> The <a href="/">no-price-tables rule</a> is about <em>other people's</em> rates: those move by seller, scope and week, so a table of them goes stale and misleads you. These are my own prices, they are fixed, and I can be held to them. The two positions are the same position.
+    </div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    DTC Outsourcing Playbook · <a href="/disclosure.html">Disclosure &amp; contact</a><br>
+    Independent site. Not endorsed by or operated by Shopify, Fiverr, or Upwork.
+  </div>
+</footer>
+</body>
+</html>
