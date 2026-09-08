@@ -43,11 +43,12 @@
     </ul>
 
     <h2>Proof, before you send anything</h2>
-    <p>You do not have to take the above on trust. <a href="https://github.com/hello532/shop-mcp">github.com/hello532/shop-mcp</a> is public: a single-file Shopify catalogue and stock server for Claude, standard library only, no dependencies to audit.</p>
+    <p>You do not have to take the above on trust. <a href="https://github.com/hello532/shop-mcp">github.com/hello532/shop-mcp</a> is public: a single-file Shopify catalogue and stock server for Claude, standard library only, no dependencies to audit. It is also <em>shipped</em>, not just written — <a href="https://pypi.org/project/shop-mcp/">published on PyPI</a> and listed in the official MCP Registry, which validated that the <code>io.github.hello532</code> namespace is mine before it would accept the entry. That listing <a href="https://registry.modelcontextprotocol.io/v0/servers?search=io.github.hello532/shop-mcp">answers for itself</a> — one record, <code>status: active</code> — rather than being a badge I drew.</p>
     <ul>
       <li><strong>189 assertions</strong> in <code>self_test.py</code>, runnable with <code>python3 shop_mcp.py --self-test</code>.</li>
       <li><strong>23 deliberate defects</strong> injected by <code>mutation_test.sh</code> — a wrong pagination cursor, a swapped comparison, a dropped error branch — and <strong>all 23 turn the suite red</strong>. That is the number that means something.</li>
       <li>Zero third-party packages, so the whole thing is readable in one sitting by whoever you ask to check it.</li>
+      <li><strong>It installs and runs as a stranger gets it.</strong> <code>uvx --from shop-mcp shop-mcp --self-test</code> needs no clone and no credentials, and reports <strong>183</strong> assertions rather than 189: <code>manifest.json</code> (5 assertions) and <code>README.md</code> (1) are deliberately not shipped into <code>site-packages</code>, and both checks skip rather than fail when their file is absent. The count moves, the verdict does not. That difference is measured and written in the README instead of being rounded away.</li>
       <li><strong>What that repository does not prove.</strong> It has never been run against a live Shopify store. There is no credential in it and no recorded API session. The queries are written to the documented schema and every path around them is tested against a transport double — but the doubles are my model of Shopify's behaviour, not Shopify. The $280 package is delivery of that same discipline against <em>your</em> store, not a claim that the public file has already done a live round trip.</li>
     </ul>
 
