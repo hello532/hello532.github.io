@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Build services — store automation, MCP servers, monitoring, with tests that prove they work</title>
-<meta name="description" content="Fixed-price Shopify automation, custom MCP servers, and price/stock monitoring. Every delivery ships with a test suite, and the test suite is itself proven by deliberately breaking the code.">
+<title>Build services — store automation, MCP servers, monitoring, page-speed fixes, with tests that prove they work</title>
+<meta name="description" content="Fixed-price Shopify automation, custom MCP servers, price/stock monitoring, and a named-defect page-speed fix. Every delivery ships with a test suite, and the test suite is itself proven by deliberately breaking the code.">
 <link rel="canonical" href="https://hello532.github.io/services.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Build services — store automation, MCP servers, monitoring, with tests that prove they work">
-<meta property="og:description" content="Fixed-price Shopify automation, custom MCP servers, and price/stock monitoring. Every delivery ships with a test suite, and the test suite is itself proven by deliberately breaking the code.">
+<meta property="og:title" content="Build services — store automation, MCP servers, monitoring, page-speed fixes, with tests that prove they work">
+<meta property="og:description" content="Fixed-price Shopify automation, custom MCP servers, price/stock monitoring, and a named-defect page-speed fix. Every delivery ships with a test suite, and the test suite is itself proven by deliberately breaking the code.">
 <meta property="og:url" content="https://hello532.github.io/services.html">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://hello532.github.io/services.html#page","url":"https://hello532.github.io/services.html","name":"Build services","isPartOf":{"@type":"WebSite","name":"DTC Outsourcing Playbook","url":"https://hello532.github.io/"}},{"@type":"Service","name":"Shopify store data automation","description":"Bulk catalogue edits, inventory and price sync, CSV or spreadsheet to Shopify, scheduled exports. Built on the Shopify Admin GraphQL API and delivered with a test suite.","serviceType":"Shopify Admin API automation","offers":{"@type":"Offer","price":"280","priceCurrency":"USD"},"areaServed":"Worldwide"},{"@type":"Service","name":"Custom MCP server","description":"A Model Context Protocol server that exposes your own data or internal API to Claude or any MCP client, with a self-test suite included.","serviceType":"MCP server development","offers":{"@type":"Offer","price":"600","priceCurrency":"USD"},"areaServed":"Worldwide"},{"@type":"Service","name":"Price and stock monitor","description":"Scheduled checks on competitor or supplier pages, with change alerts and a machine-readable history.","serviceType":"Web scraping and monitoring","offers":{"@type":"Offer","price":"220","priceCurrency":"USD"},"areaServed":"Worldwide"}]}
+{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://hello532.github.io/services.html#page","url":"https://hello532.github.io/services.html","name":"Build services","isPartOf":{"@type":"WebSite","name":"DTC Outsourcing Playbook","url":"https://hello532.github.io/"}},{"@type":"Service","name":"Shopify store data automation","description":"Bulk catalogue edits, inventory and price sync, CSV or spreadsheet to Shopify, scheduled exports. Built on the Shopify Admin GraphQL API and delivered with a test suite.","serviceType":"Shopify Admin API automation","offers":{"@type":"Offer","price":"280","priceCurrency":"USD"},"areaServed":"Worldwide"},{"@type":"Service","name":"Custom MCP server","description":"A Model Context Protocol server that exposes your own data or internal API to Claude or any MCP client, with a self-test suite included.","serviceType":"MCP server development","offers":{"@type":"Offer","price":"600","priceCurrency":"USD"},"areaServed":"Worldwide"},{"@type":"Service","name":"Price and stock monitor","description":"Scheduled checks on competitor or supplier pages, with change alerts and a machine-readable history.","serviceType":"Web scraping and monitoring","offers":{"@type":"Offer","price":"220","priceCurrency":"USD"},"areaServed":"Worldwide"},{"@type":"Service","name":"Named-defect page-speed fix","description":"A fixed list of measured page-speed defects on one landing page or product template - server response time, compression, blocking scripts, image sizing and loading, above-the-fold weight - repaired and re-measured on the same URL, before and after.","serviceType":"Web performance optimisation","offers":{"@type":"Offer","price":"750","priceCurrency":"USD"},"areaServed":"Worldwide"}]}
 </script>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -32,7 +32,7 @@
 <main id="main">
   <div class="wrap">
     <h1>The engineering jobs on this site, built for you — with tests that prove the work</h1>
-    <p class="lede">The guides here teach you how to brief someone else. This page is the other option: three jobs I build myself, at a fixed price, where the delivery includes a test suite <em>and</em> evidence that the test suite actually catches breakage. That second part is the whole difference. Anyone can hand you passing tests; passing tests are worthless until something has tried to break them.</p>
+    <p class="lede">The guides here teach you how to brief someone else. This page is the other option: four jobs I build myself, at a fixed price, where the delivery includes a test suite <em>and</em> evidence that the test suite actually catches breakage. That second part is the whole difference. Anyone can hand you passing tests; passing tests are worthless until something has tried to break them.</p>
 
     <h2>What every delivery includes</h2>
     <ul>
@@ -60,6 +60,14 @@
       <li>Scheduled exports: stock levels, order lines, or anything else you currently copy by hand.</li>
       <li>A dry-run mode that prints every change before it writes, because a bulk mistake on a live catalogue is expensive and silent.</li>
     </ul>
+    <p><strong>A second public build, for this package specifically.</strong> <code>shop-mcp</code> above is read-only and has never touched a live store, so it is evidence of method rather than of this job. <a href="https://github.com/hello532/gpt-ads-feed">github.com/hello532/gpt-ads-feed</a> is the scheduled half, running: a real Shopify Admin GraphQL client against API version <code>2026-04</code>, not the CSV importer, emitting a daily full product snapshot.</p>
+    <ul>
+      <li><strong>277 assertions</strong> across three layers — function level, nine end-to-end scenarios, and the missing-dependency and missing-credential branches — in one command, <code>bash tests/run_all.sh</code>, with no network and no credentials.</li>
+      <li><strong>Three guards that refuse to publish</strong> rather than overwrite live data with a bad snapshot: an empty result, a row count under the configured floor, and a rejected-row ratio over its threshold. Each exits <code>3</code> and uploads nothing. With full-snapshot semantics one bad write delists an entire catalogue, which is why the failure mode is a refusal and not a warning.</li>
+      <li><code>--dry-run</code> writes the files locally and touches neither the upload nor the saved state, so the run you inspect is the run that would have shipped.</li>
+      <li>Tokens and shop domains are redacted from logs and notifications, with an assertion covering it, because an alert channel is the usual place a credential escapes.</li>
+    </ul>
+    <p><strong>What it does not prove.</strong> It reads and exports; the bulk-write half of this package is not demonstrated by it. Its parquet output, SFTP upload, and one third-party API call have been through their guard branches only — no real bytes, no real connection — and its README says so in those words rather than leaving you to find out. The $280 is this discipline applied to your store, including the writes, not a claim that either public repository has already done that for you.</p>
 
     <h2>2. Custom MCP server — $600</h2>
     <p><strong>Five working days.</strong> Your own data or internal API, exposed to Claude or any MCP client, so you can ask questions of it in plain language instead of building a dashboard nobody opens.</p>
@@ -79,11 +87,21 @@
       <li>A self-check that tells you when the <em>scraper</em> broke rather than reporting "no change" forever. Silent failure is the normal way these die.</li>
     </ul>
 
+    <h2>4. Named-defect page-speed fix — $750</h2>
+    <p><strong>Five working days.</strong> Not "make my site faster". A fixed list of defects I have already measured on one page of yours, repaired and re-measured on that same URL. If you got an email from me, the list in it is this scope.</p>
+    <ul>
+      <li><strong>What is in scope is the list, and the list exists before you pay.</strong> Server response time to first byte, HTML compression and size, redirect chains, missing viewport meta, render-blocking scripts in <code>&lt;head&gt;</code>, CSS inlined instead of cached, images declaring no width and height, below-the-fold images loading immediately, missing <code>srcset</code>, above-the-fold image weight, missing alt text and meta description. Whichever of those your page actually has.</li>
+      <li><strong>Before and after, same URL, same method.</strong> The numbers you are quoted are numbers you can reproduce yourself with <code>curl -I</code> and view-source before I touch anything, and again when I hand back. Take the fastest of several tries rather than one request, because a single request can hit a warm cache and tell you nothing.</li>
+      <li><strong>A theme diff you own,</strong> not access to a dashboard of mine. Reversible, section by section.</li>
+    </ul>
+    <p><strong>What this is not.</strong> Not a redesign, not a theme migration, and not a decision about which of your apps to remove — those change what the page <em>is</em>, and none of them can be enumerated before work starts. If your slowest problem turns out to be an app you rely on or a plan your host will not upgrade, you get told that instead of getting billed for a workaround. The measurement is of the public page as a stranger sees it, so nothing behind checkout or a login is included.</p>
+    <p><strong>Why this one can be fixed-price at all.</strong> Because the defect list is closed before the quote, which is the same test the hourly rule below applies. "Make this faster" is open-ended and gets the hourly shape; "fix these eleven measured things on this URL" does not.</p>
+
     <h2>Anything else — $45 an hour</h2>
-    <p>The guide on <a href="/guides/fixed-price-or-hourly.html">fixed price or hourly</a> routes a job by one test: can the deliverable be enumerated before work starts. The three packages above are fixed price precisely because they pass that test. A job that does not pass it — "make this faster", "find out why this breaks", an open-ended migration — gets the hourly shape instead, because forcing an open scope into a fixed price is where disputes come from. I follow my own rule here rather than quoting you a fixed number I would have to defend later.</p>
+    <p>The guide on <a href="/guides/fixed-price-or-hourly.html">fixed price or hourly</a> routes a job by one test: can the deliverable be enumerated before work starts. The four packages above are fixed price precisely because they pass that test — including the speed one, which is priced on a defect list that exists before you pay rather than on a goal. A job that does not pass it — "make the whole store faster", "find out why this breaks", an open-ended migration — gets the hourly shape instead, because forcing an open scope into a fixed price is where disputes come from. I follow my own rule here rather than quoting you a fixed number I would have to defend later.</p>
 
     <h2>How to start</h2>
-    <p>Email <a href="mailto:coolun.337@gmail.com?subject=Build%20request">coolun.337@gmail.com</a> with what you are trying to do. Useful in a first message, though none of it is required:</p>
+    <p>I am Cun Dong. A bank transfer for any of the above reads <code>CUN DONG</code> as the recipient, which is the name my payment provider verified against a passport before the account could receive anything — so the name on this page, the name signing the email, and the name in your banking app are one person. Email <a href="mailto:coolun337@gmail.com?subject=Build%20request">coolun337@gmail.com</a> with what you are trying to do. Useful in a first message, though none of it is required:</p>
     <ul>
       <li>The outcome, not the implementation — "I re-key supplier stock into Shopify every morning" beats "I need a sync script".</li>
       <li>Which platform and where the data lives now.</li>
@@ -91,8 +109,8 @@
     </ul>
     <p>You get back a scope in writing — the deliverable, the price, the turnaround — before any money moves. If the job is a bad fit, or you would be better off buying a $20 app, I will say so; that is cheaper for both of us than a refund.</p>
 
-    <h2>Or hire through Contra, with the money held in escrow</h2>
-    <p>Email is the direct route and costs neither of us a platform fee. If you would rather not wire money to a stranger on the strength of a repository, the first package is also listed on Contra, which holds the payment until you accept the delivery: <a href="https://contra.com/s/A7cQZQ6Z-shopify-admin-api-automation-with-tests-proven-to-catch-faults">Shopify Admin API automation, $280, three days</a>. Same scope, same price, same evidence — the escrow is the only difference, and it protects you rather than me.</p>
+    <h2>Or hire the first package through Contra</h2>
+    <p>Email is the direct route and costs neither of us a platform fee. If you would rather not wire money to a stranger on the strength of a repository, the first package is also listed on Contra: <a href="https://contra.com/s/A7cQZQ6Z-shopify-admin-api-automation-with-tests-proven-to-catch-faults">Shopify Admin API automation, $280, three days</a>. The scope, price, and evidence are the same. Contra handles the platform checkout; its current checkout, payment, dispute, and fee terms apply.</p>
 
     <div class="note">
       <strong>Why there are prices here when the guides refuse to print them.</strong> The <a href="/">no-price-tables rule</a> is about <em>other people's</em> rates: those move by seller, scope and week, so a table of them goes stale and misleads you. These are my own prices, they are fixed, and I can be held to them. The two positions are the same position.
