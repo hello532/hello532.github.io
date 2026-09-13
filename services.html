@@ -75,6 +75,15 @@
       <li>A dry-run mode that prints every change before it writes, because a bulk mistake on a live catalogue is expensive and silent.</li>
     </ul>
 
+    <p><strong>A second public build, for this package specifically.</strong> <code>shop-mcp</code> above is read-only and has never touched a live store, so it is evidence of method rather than of this job. <a href="https://github.com/hello532/gpt-ads-feed">github.com/hello532/gpt-ads-feed</a> is the scheduled half, running: a real Shopify Admin GraphQL client against API version <code>2026-04</code>, not the CSV importer, emitting a daily full product snapshot.</p>
+    <ul>
+      <li><strong>277 assertions</strong> across three layers — function level, nine end-to-end scenarios, and the missing-dependency and missing-credential branches — in one command, <code>bash tests/run_all.sh</code>, with no network and no credentials.</li>
+      <li><strong>Three guards that refuse to publish</strong> rather than overwrite live data with a bad snapshot: an empty result, a row count under the configured floor, and a rejected-row ratio over its threshold. Each exits <code>3</code> and uploads nothing. With full-snapshot semantics one bad write delists an entire catalogue, which is why the failure mode is a refusal and not a warning.</li>
+      <li><code>--dry-run</code> writes the files locally and touches neither the upload nor the saved state, so the run you inspect is the run that would have shipped.</li>
+      <li>Tokens and shop domains are redacted from logs and notifications, with an assertion covering it, because an alert channel is the usual place a credential escapes.</li>
+    </ul>
+    <p><strong>What it does not prove.</strong> It reads and exports; the bulk-write half of this package is not demonstrated by it. Its parquet output, SFTP upload, and one third-party API call have been through their guard branches only — no real bytes, no real connection — and its README says so in those words rather than leaving you to find out. The $280 is this discipline applied to your store, including the writes, not a claim that either public repository has already done that for you.</p>
+
     <h2>2. Custom MCP server — $600</h2>
     <p><strong>Five working days.</strong> Your own data or internal API, exposed to Claude or any MCP client, so you can ask questions of it in plain language instead of building a dashboard nobody opens.</p>
     <ul>
