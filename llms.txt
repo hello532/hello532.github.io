@@ -1,0 +1,26 @@
+# DTC Outsourcing Playbook
+
+> Brief templates and delivery checklists for Shopify founders: what to send a freelancer, and what to check when the work comes back.
+
+## Guides
+
+- [Shopify launch outsourcing checklist](https://hello532.github.io/guides/shopify-launch-outsourcing-checklist.html)
+- [Vetting a freelance seller](https://hello532.github.io/guides/vetting-any-seller.html)
+- [Fixed price vs hourly outsourcing](https://hello532.github.io/guides/fixed-price-or-hourly.html)
+- [Product photo brief template](https://hello532.github.io/guides/product-photo-brief-template.html)
+- [Product page copy brief](https://hello532.github.io/guides/product-page-copy-brief.html)
+- [Logo and brand kit brief](https://hello532.github.io/guides/logo-brand-kit-brief.html)
+- [Landing page brief template](https://hello532.github.io/guides/landing-page-build-brief.html)
+- [Vetting a video editor for paid ads](https://hello532.github.io/guides/video-editor-vetting-checklist.html)
+- [Welcome and abandoned-cart email brief](https://hello532.github.io/guides/email-flow-brief.html)
+- [Pre-launch store QA brief](https://hello532.github.io/guides/pre-launch-qa-brief.html)
+- [All launch outsourcing guides](https://hello532.github.io/guides/)
+
+## Services
+
+- [Shopify automation, MCP, monitoring](https://hello532.github.io/services.html)
+
+## About
+
+- [About this playbook](https://hello532.github.io/about.html)
+- [Disclosure, funding, and contact](https://hello532.github.io/disclosure.html)

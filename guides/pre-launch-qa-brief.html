@@ -3,15 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pre-launch store QA brief: coverage, severity, and the defect report</title>
-<meta name="description" content="A brief for commissioning a pre-launch pass over a finished store: the coverage to specify, severity defined by consequence, and the defect report to demand.">
+<title>Pre-launch store QA brief and coverage</title>
+<meta name="description" content="What to specify so pre-launch store QA returns a defect list you can work through, with coverage, severity, test orders, and who fixes what.">
 <link rel="canonical" href="https://hello532.github.io/guides/pre-launch-qa-brief.html">
+<meta name="author" content="Editor of DTC Outsourcing Playbook">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Pre-launch store QA brief: coverage, severity, and the defect report">
-<meta property="og:description" content="A brief for commissioning a pre-launch pass over a finished store: the coverage to specify, severity defined by consequence, and the defect report to demand.">
+<meta property="og:title" content="Pre-launch store QA brief and coverage">
+<meta property="og:description" content="What to specify so pre-launch store QA returns a defect list you can work through, with coverage, severity, test orders, and who fixes what.">
 <meta property="og:url" content="https://hello532.github.io/guides/pre-launch-qa-brief.html">
+<meta property="og:image" content="https://hello532.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"DTC Outsourcing Playbook","item":"https://hello532.github.io/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://hello532.github.io/guides/"},{"@type":"ListItem","position":3,"name":"Pre-launch store QA brief"}]},{"@type":"Article","headline":"Pre-launch store QA brief: coverage, severity, and the defect report","description":"A brief for commissioning a pre-launch pass over a finished store: the coverage to specify, severity defined by consequence, and the defect report to demand.","url":"https://hello532.github.io/guides/pre-launch-qa-brief.html","datePublished":"2026-09-04","dateModified":"2026-09-04","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"DTC Outsourcing Playbook","url":"https://hello532.github.io/"}}]}
+{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"DTC Outsourcing Playbook","item":"https://hello532.github.io/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://hello532.github.io/guides/"},{"@type":"ListItem","position":3,"name":"Pre-launch store QA brief","item":"https://hello532.github.io/guides/pre-launch-qa-brief.html"}]},{"@type":"Article","headline":"Pre-launch store QA brief","description":"What to specify so pre-launch store QA returns a defect list you can work through, with coverage, severity, test orders, and who fixes what.","url":"https://hello532.github.io/guides/pre-launch-qa-brief.html","datePublished":"2026-09-04","dateModified":"2026-09-10","inLanguage":"en","isPartOf":{"@id":"https://hello532.github.io/#website"},"author":{"@id":"https://hello532.github.io/about.html#author"},"publisher":{"@id":"https://hello532.github.io/#publisher"},"image":"https://hello532.github.io/og-image.png","mainEntityOfPage":"https://hello532.github.io/guides/pre-launch-qa-brief.html"},{"@type":"FAQPage","@id":"https://hello532.github.io/guides/pre-launch-qa-brief.html#faq","url":"https://hello532.github.io/guides/pre-launch-qa-brief.html","mainEntity":[{"@type":"Question","name":"When should I order pre-launch store QA?","acceptedAnswer":{"@type":"Answer","text":"When the store is otherwise finished and frozen: products loaded, theme done, apps installed, policies written, and nothing queued to change while someone is testing."}},{"@type":"Question","name":"What should a QA deliverable look like?","acceptedAnswer":{"@type":"Answer","text":"A defect list you can sort, assign, and close \u2014 not a narrated screen recording. Every row needs severity, steps to reproduce, expected versus actual, device, and one screenshot."}},{"@type":"Question","name":"How should test orders be handled?","acceptedAnswer":{"@type":"Answer","text":"Agree who refunds the test orders and who cancels the test shipments before the pass starts, in writing. If your platform offers a test mode, confirm whether it exercises the same path a real card would."}},{"@type":"Question","name":"Who fixes the defects QA finds?","acceptedAnswer":{"@type":"Answer","text":"QA and repair are two orders. A tester finding a defect does not mean the tester is fixing it. Ask in writing before you order."}}]},{"@type":"Organization","@id":"https://hello532.github.io/#publisher","name":"DTC Outsourcing Playbook","url":"https://hello532.github.io/"},{"@type":"Person","@id":"https://hello532.github.io/about.html#author","name":"Editor of DTC Outsourcing Playbook","url":"https://hello532.github.io/about.html","jobTitle":"Editor","sameAs":["https://github.com/hello532"]}]}
 </script>
 <link rel="stylesheet" href="../style.css">
 </head>
@@ -32,9 +37,16 @@
 <main id="main">
   <div class="wrap">
     <h1>Pre-launch store QA brief</h1>
-    <p class="meta">Updated 4 September 2026 · reading time about 8 minutes</p>
+    <div class="byline">Editor, DTC Outsourcing Playbook</div>
+    <p class="meta">Updated on 10 Sep 2026 · 8 min</p>
+    <p class="lede">A pre-launch store QA brief is graded by whether a stranger on a phone can complete an order and be charged the right amount, not by taste. That is a pass or a fail, which makes it the only item on a launch list you can check properly — and the first one dropped when the launch date gets close.</p>
 
-    <p class="lede">Everything else you outsource before launch is graded by taste. This one is graded by whether a stranger on a phone can complete an order and be charged the right amount. That is a pass or a fail, which makes it the only item on a launch list you can check properly — and the first one dropped when the launch date gets close.</p>
+    <h2>Key takeaways</h2>
+    <ul class="takeaways">
+      <li>Order it against a frozen store. QA on a moving target produces a report that is obsolete before it is read.</li>
+      <li>Ask for a defect list, not a screen recording. Every row needs severity, steps, expected versus actual, and a device.</li>
+      <li>Agree who refunds test orders before the pass starts. QA and repair are two orders.</li>
+    </ul>
 
     <h2>When to order it, and when to do it yourself</h2>
     <p><strong>Outsource when</strong> the store is otherwise finished and frozen: products loaded, theme done, apps installed, policies written, and nothing queued to change while someone is testing. <strong>Do it yourself when</strong> products are still going in. QA against a moving target produces a report that is obsolete before it is read — half the defects were closed by an unrelated edit, and the tester cannot tell you which half.</p>
@@ -92,7 +104,7 @@
 
     <h2>Test orders, refunds, and clean books</h2>
     <p>Someone has to attempt a purchase, which means money moves or is deliberately made not to. Decide which route you are taking before you order, and write it into the brief.</p>
-    <p>If your platform or payment provider offers a test mode, confirm how it behaves today and whether it exercises the same path a real card would, then decide whether that is enough coverage — the parts most likely to be broken are often the ones a simulator skips. The alternatives are a real order placed by the tester on a payment method you control, or one you place yourself while the tester watches and records the result. Any of the three is defensible. Leaving it to be worked out mid-pass is not.</p>
+    <p>If your platform or payment provider offers a <a href="https://help.shopify.com/en/manual/checkout-settings/test-orders">test mode</a>, confirm how it behaves today and whether it exercises the same path a real card would, then decide whether that is enough coverage — the parts most likely to be broken are often the ones a simulator skips. The alternatives are a real order placed by the tester on a payment method you control, or one you place yourself while the tester watches and records the result. Any of the three is defensible. Leaving it to be worked out mid-pass is not.</p>
     <div class="warn">
       <strong>Agree who refunds the test orders and who cancels the test shipments before the pass starts, in writing.</strong> A completed test order is a real order until somebody reverses it: it can trigger a fulfilment, notify a supplier, consume stock, land in your accounting, and count as a conversion in every connected tool. Assume nothing is filtered out for you; check. Give test orders a recognisable name or note so every one of them can be found afterwards, and require them listed in the report.
     </div>
@@ -154,6 +166,23 @@ Deadline:</pre>
 
     <div class="note">
       A QA order is not someone looking at your store. It is someone attempting what a buyer will attempt, on hardware you do not own, and writing down what happened in a form you can act on without watching anything. Specify the coverage, define severity by consequence, and settle the test orders before one is placed. Everything else about this order is detail.
+    </div>
+    <h2>FAQ</h2>
+    <div class="faq">
+      <h3>When should I order pre-launch store QA?</h3>
+      <p>When the store is otherwise finished and frozen: products loaded, theme done, apps installed, policies written, and nothing queued to change while someone is testing.</p>
+    </div>
+    <div class="faq">
+      <h3>What should a QA deliverable look like?</h3>
+      <p>A defect list you can sort, assign, and close — not a narrated screen recording. Every row needs severity, steps to reproduce, expected versus actual, device, and one screenshot.</p>
+    </div>
+    <div class="faq">
+      <h3>How should test orders be handled?</h3>
+      <p>Agree who refunds the test orders and who cancels the test shipments before the pass starts, in writing. If your platform offers a test mode, confirm whether it exercises the same path a real card would.</p>
+    </div>
+    <div class="faq">
+      <h3>Who fixes the defects QA finds?</h3>
+      <p>QA and repair are two orders. A tester finding a defect does not mean the tester is fixing it. Ask in writing before you order.</p>
     </div>
   </div>
 </main>

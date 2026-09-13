@@ -185,6 +185,32 @@ footer.site {
 }
 footer.site a { color: var(--teal); }
 
+.byline {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 0 0 10px;
+}
+.takeaways {
+  background: var(--teal-soft);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px 18px 14px 38px;
+  margin: 0 0 26px;
+}
+.takeaways li { margin: 8px 0; }
+.faq {
+  margin: 16px 0 0;
+  padding: 0 0 14px;
+  border-bottom: 1px solid var(--line);
+}
+.faq:last-of-type { border-bottom: 0; padding-bottom: 0; }
+.faq h3 {
+  font-size: 17px;
+  margin: 16px 0 8px;
+  padding: 0;
+  border: 0;
+}
+
 @media (max-width: 560px) {
   .scroll-x > table { font-size: 14.5px; }
   th, td { padding: 7px 8px; }
