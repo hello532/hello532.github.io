@@ -41,6 +41,8 @@
     <div class="byline">Editor, DTC Outsourcing Playbook</div>
     <p class="meta">Updated 15 September 2026</p>
     <p class="lede">shop-mcp is a single-file Model Context Protocol server that answers catalogue and stock questions about a Shopify store. It uses the Python standard library and nothing else. It cannot write. You can run the test suite before you give it a token.</p>
+    <pre><code>uvx --from shop-mcp shop-mcp --self-test</code></pre>
+    <p>That is the whole claim, and it runs before you hand over a token: no clone, no credentials, no network. What the count should be, and why it differs from a clone, is spelled out below.</p>
 
     <h2>Key takeaways</h2>
     <ul class="takeaways">
@@ -51,8 +53,6 @@
     </ul>
 
     <h2>Run it before you trust it</h2>
-    <p>The command below needs no clone and no credentials. It is the same command a stranger gets from PyPI:</p>
-    <pre><code>uvx --from shop-mcp shop-mcp --self-test</code></pre>
     <p><code>uvx --from shop-mcp shop-mcp --self-test</code> needs no clone and no credentials, and reports <strong>183</strong> assertions rather than 200: <code>manifest.json</code> (5 assertions), <code>llms-install.md</code> (11) and <code>README.md</code> (1) are deliberately not shipped into <code>site-packages</code>, and every one of those checks skips rather than fails when its file is absent. The count moves, the verdict does not.</p>
     <ul>
       <li><strong>200 assertions</strong> in <code>self_test.py</code>, runnable with <code>python3 shop_mcp.py --self-test</code> from a clone.</li>
