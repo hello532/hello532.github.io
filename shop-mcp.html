@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>shop-mcp: read-only Shopify catalogue and stock for Claude</title>
+<meta name="description" content="A single-file, standard-library MCP server that lets Claude read a Shopify catalogue and stock. Four read-only tools, a self-test you can run before you trust it, and no write path.">
+<link rel="canonical" href="https://hello532.github.io/shop-mcp.html">
+<meta name="author" content="Editor of DTC Outsourcing Playbook">
+<meta property="og:type" content="website">
+<meta property="og:title" content="shop-mcp: read-only Shopify catalogue and stock for Claude">
+<meta property="og:description" content="A single-file, standard-library MCP server that lets Claude read a Shopify catalogue and stock. Four read-only tools, a self-test you can run before you trust it, and no write path.">
+<meta property="og:url" content="https://hello532.github.io/shop-mcp.html">
+<meta property="og:image" content="https://hello532.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"DTC Outsourcing Playbook","item":"https://hello532.github.io/"},{"@type":"ListItem","position":2,"name":"shop-mcp"}]},{"@type":"WebPage","@id":"https://hello532.github.io/shop-mcp.html#page","url":"https://hello532.github.io/shop-mcp.html","name":"shop-mcp: read-only Shopify catalogue and stock for Claude","headline":"Read-only Shopify catalogue and stock for Claude","description":"A single-file, standard-library MCP server that lets Claude read a Shopify catalogue and stock. Four read-only tools, a self-test you can run before you trust it, and no write path.","datePublished":"2026-09-15","dateModified":"2026-09-15","inLanguage":"en","isPartOf":{"@id":"https://hello532.github.io/#website"},"author":{"@id":"https://hello532.github.io/about.html#author"},"publisher":{"@id":"https://hello532.github.io/#publisher"},"image":"https://hello532.github.io/og-image.png","mainEntityOfPage":"https://hello532.github.io/shop-mcp.html"},{"@type":"SoftwareApplication","name":"shop-mcp","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, macOS, Windows","softwareVersion":"1.0.1","url":"https://pypi.org/project/shop-mcp/","downloadUrl":"https://pypi.org/project/shop-mcp/","installUrl":"https://pypi.org/project/shop-mcp/","softwareRequirements":"Python 3","license":"https://github.com/hello532/shop-mcp/blob/main/LICENSE","description":"A single-file, standard-library MCP server that lets Claude read a Shopify catalogue and stock. Four read-only tools, a self-test you can run before you trust it, and no write path.","author":{"@id":"https://hello532.github.io/about.html#author"},"publisher":{"@id":"https://hello532.github.io/#publisher"}},{"@type":"FAQPage","@id":"https://hello532.github.io/shop-mcp.html#faq","url":"https://hello532.github.io/shop-mcp.html","mainEntity":[{"@type":"Question","name":"Can shop-mcp write to a Shopify store?","acceptedAnswer":{"@type":"Answer","text":"No. The four tools are search_products, get_product, check_inventory, and low_stock_report. All of them read. The Admin token needs read_products and read_inventory; a write scope is unused."}},{"@type":"Question","name":"How do I verify shop-mcp before pointing it at a store?","acceptedAnswer":{"@type":"Answer","text":"Run uvx --from shop-mcp shop-mcp --self-test. That command needs no clone and no credentials. A checkout of the repository runs python3 shop_mcp.py --self-test instead."}},{"@type":"Question","name":"Has shop-mcp been run against a live Shopify store?","acceptedAnswer":{"@type":"Answer","text":"No. There is no credential in the repository and no recorded API session. The queries are written to the documented Admin GraphQL schema and tested against a transport double. The doubles are a model of Shopify's behaviour, not Shopify."}},{"@type":"Question","name":"What does shop-mcp cost?","acceptedAnswer":{"@type":"Answer","text":"Nothing. It is MIT-licensed, on PyPI, and in the official MCP Registry. Paid work, if you want a server over your own data rather than this Shopify shape, is on the services page."}}]},{"@type":"Organization","@id":"https://hello532.github.io/#publisher","name":"DTC Outsourcing Playbook","url":"https://hello532.github.io/"},{"@type":"Person","@id":"https://hello532.github.io/about.html#author","name":"Editor of DTC Outsourcing Playbook","url":"https://hello532.github.io/about.html","jobTitle":"Editor","sameAs":["https://github.com/hello532"]}]}
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/">DTC Outsourcing Playbook</a>
+    <nav class="site" aria-label="Site">
+      <a href="/guides/">All guides</a>
+      <a href="/services.html">Services</a>
+      <a href="/about.html">About</a>
+      <a href="/disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <h1>Read-only Shopify catalogue and stock for Claude</h1>
+    <div class="byline">Editor, DTC Outsourcing Playbook</div>
+    <p class="meta">Updated 15 September 2026</p>
+    <p class="lede">shop-mcp is a single-file Model Context Protocol server that answers catalogue and stock questions about a Shopify store. It uses the Python standard library and nothing else. It cannot write. You can run the test suite before you give it a token.</p>
+
+    <h2>Key takeaways</h2>
+    <ul class="takeaways">
+      <li>Four tools, all read: product search, one product in full, stock per location for a SKU, and a low-stock list.</li>
+      <li>No MCP SDK, no <code>requests</code>, no GraphQL client. The install is the file.</li>
+      <li>The self-test needs no credentials and no network. A write path is not in the code.</li>
+      <li>This page is the public build. A custom server over your own data is a separate, priced job on the <a href="/services.html">services page</a>.</li>
+    </ul>
+
+    <h2>Run it before you trust it</h2>
+    <p>The command below needs no clone and no credentials. It is the same command a stranger gets from PyPI:</p>
+    <pre><code>uvx --from shop-mcp shop-mcp --self-test</code></pre>
+    <p><code>uvx --from shop-mcp shop-mcp --self-test</code> needs no clone and no credentials, and reports <strong>183</strong> assertions rather than 200: <code>manifest.json</code> (5 assertions), <code>llms-install.md</code> (11) and <code>README.md</code> (1) are deliberately not shipped into <code>site-packages</code>, and every one of those checks skips rather than fails when its file is absent. The count moves, the verdict does not.</p>
+    <ul>
+      <li><strong>200 assertions</strong> in <code>self_test.py</code>, runnable with <code>python3 shop_mcp.py --self-test</code> from a clone.</li>
+      <li><strong>23 deliberate defects</strong> injected by <code>mutation_test.sh</code> — a wrong pagination cursor, a swapped comparison, a dropped error branch — and <strong>all 23 turn the suite red</strong>.</li>
+      <li>Zero third-party packages, so the whole thing is readable in one sitting.</li>
+    </ul>
+    <p>Those numbers are not typed onto this page by hand. They come from <code>evidence.json</code>, which is rewritten by running the suites in <a href="https://github.com/hello532/shop-mcp">github.com/hello532/shop-mcp</a>. If the suite moves, this page has to move with it or the site gate goes red.</p>
+
+    <h2>What it will not do</h2>
+    <ul>
+      <li>It will not create, update, or delete products, variants, or inventory.</li>
+      <li>It will not touch orders, customers, or discounts.</li>
+      <li>It will not send your catalogue anywhere except the Shopify Admin API and the stdio pipe to the host.</li>
+      <li>It will not phone home. There is no telemetry.</li>
+    </ul>
+    <p>The Admin token it wants is <code>read_products</code> and <code>read_inventory</code>. A write scope is unused. That is the blast-radius argument against a 55-tool server on a live store: feature count is the wrong axis when a bad prompt can edit the catalogue.</p>
+
+    <h2>The four tools</h2>
+    <ul>
+      <li><code>search_products</code> — what you sell that matches a query: identity and total stock.</li>
+      <li><code>get_product</code> — one product in full, every variant with SKU, price, and stock.</li>
+      <li><code>check_inventory</code> — stock for a SKU per location: available, committed, on-hand.</li>
+      <li><code>low_stock_report</code> — variants at or below a threshold, lowest first, and whether the scan ran out of page before it finished.</li>
+    </ul>
+    <p>Four is a choice. A wider surface is easy and makes the model worse at picking.</p>
+
+    <h2>Defects the suite is built to catch</h2>
+    <p>A stdio MCP server fails invisibly when you run it yourself and fatally inside a host. Each of these has a named assertion:</p>
+    <ul>
+      <li>A diagnostic on stdout. One stray <code>print()</code> corrupts the client's next parse. Diagnostics go to stderr; a test asserts stdout stays byte-empty.</li>
+      <li><code>if msg.get("id")</code> is falsy for zero, so a client numbering requests from zero has its first call silently dropped. Presence, not truthiness.</li>
+      <li>A tool that ran and failed must return a normal result with <code>isError: true</code>. A JSON-RPC error is for a malformed request; the model never sees those.</li>
+      <li>An unquoted SKU. <code>sku:SH 1</code> is a different query from <code>sku:"SH 1"</code>. The first silently matches the wrong variants.</li>
+      <li>A null quantity coerced to zero. Shopify returns <code>null</code> for a variant that does not track inventory. Untracked and out of stock are different facts.</li>
+    </ul>
+
+    <h2>What is not verified</h2>
+    <p>This has never been run against a live Shopify store. There is no credential in the repository and no recorded API session. The queries are written to the documented Admin GraphQL schema, and every path around them is tested against a transport double — but the doubles are a model of Shopify's behaviour, not Shopify. A README that blurs that line is asking to be trusted on the wrong thing.</p>
+    <p>The listing in the official MCP Registry is a different kind of fact: it validated that the <code>io.github.hello532</code> namespace is mine before it would accept the entry. That record <a href="https://registry.modelcontextprotocol.io/v0/servers?search=io.github.hello532/shop-mcp">answers for itself</a> — one record, <code>status: active</code> — rather than being a badge drawn here.</p>
+
+    <h2>Install</h2>
+    <p>On PyPI as <a href="https://pypi.org/project/shop-mcp/">shop-mcp 1.0.1</a>. Source at <a href="https://github.com/hello532/shop-mcp">github.com/hello532/shop-mcp</a>. MIT licence.</p>
+    <pre><code>export SHOPIFY_SHOP_DOMAIN=your-shop.myshopify.com
+export SHOPIFY_ADMIN_TOKEN=shpat_...          # read_products, read_inventory
+uvx shop-mcp                                  # or: pip install shop-mcp &amp;&amp; shop-mcp</code></pre>
+    <p>Claude Desktop, or any MCP host:</p>
+    <pre><code>{
+  "mcpServers": {
+    "shop": {
+      "command": "uvx",
+      "args": ["shop-mcp"],
+      "env": {
+        "SHOPIFY_SHOP_DOMAIN": "your-shop.myshopify.com",
+        "SHOPIFY_ADMIN_TOKEN": "shpat_..."
+      }
+    }
+  }
+}</code></pre>
+    <p>With no credentials set it still completes a handshake and serves <code>tools/list</code>, then returns <code>isError</code> with the missing variable named. A host that cannot read <code>tools/list</code> reports a broken server and sends you looking in the wrong place.</p>
+
+    <h2>If you want the same shape over your own data</h2>
+    <p>This file is the worked example, not a product line. The same discipline — a stdio MCP server over data you already have, with a self-test suite and proof the suite catches injected defects — is a fixed-price job on the <a href="/services.html">services page</a>. Email <a href="mailto:coolun337@gmail.com">coolun337@gmail.com</a>. Nothing on this page needs paying for; issues and PRs are welcome either way.</p>
+
+    <div class="note">
+      <strong>Start with the command, not the pitch.</strong> <code>uvx --from shop-mcp shop-mcp --self-test</code> is the whole claim. If that is not green on your machine, nothing else on this page matters.
+    </div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    DTC Outsourcing Playbook · <a href="/disclosure.html">Disclosure &amp; contact</a><br>
+    Independent site. Not endorsed by or operated by Shopify, Fiverr, or Upwork.
+  </div>
+</footer>
+</body>
+</html>

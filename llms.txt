@@ -16,6 +16,10 @@
 - [Pre-launch store QA brief](https://hello532.github.io/guides/pre-launch-qa-brief.html)
 - [All launch outsourcing guides](https://hello532.github.io/guides/)
 
+## Tooling
+
+- [shop-mcp: read-only Shopify catalogue and stock for Claude](https://hello532.github.io/shop-mcp.html)
+
 ## Services
 
 - [Shopify automation, MCP, monitoring](https://hello532.github.io/services.html)
