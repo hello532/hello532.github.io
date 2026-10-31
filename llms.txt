@@ -22,7 +22,7 @@
 
 ## Services
 
-- [Shopify automation, MCP, monitoring](https://hello532.github.io/services.html)
+- [Shopify automation, MCP servers, price monitoring, named-defect page-speed fixes](https://hello532.github.io/services.html): four fixed-price engineering jobs, each delivered with a test suite proven by injecting deliberate defects.
 
 ## About
 
